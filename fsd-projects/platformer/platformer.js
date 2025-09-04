@@ -27,21 +27,26 @@ $(function () {
     //////////////////////////////////
 
     // TODO 1 - Enable the Grid
-    // toggleGrid();
+    toggleGrid();
 
 
     // TODO 2 - Create Platforms
-
-
+    createPlatform(300,630,70,30,"rgba(207, 55, 253, 0.5)");//bottom
+    createPlatform(1200,630,70,30,"rgba(207, 55, 253, 0.5)");//to the right
+    createPlatform(350,400,70,30,"rgba(207, 55, 253, 0.5)");//lil up
+    createPlatform(680,350,20,450,"rgba(207, 55, 253, 0.5)");//wall
+    createPlatform(600,530,70,30,"rgba(207, 55, 253, 0.5)");//next to wall
+    createPlatform(680,150,20,100,"rgba(207, 55, 253, 0.5)");//wall up
+    createPlatform(100,150,600,20,"rgba(207, 55, 253, 0.5)");//up walkway
 
 
     // TODO 3 - Create Collectables
-
+    createCollectable("grace", 270,600);
 
 
     
     // TODO 4 - Create Cannons
-
+    createCannon("right",650,1000);
 
     
     
