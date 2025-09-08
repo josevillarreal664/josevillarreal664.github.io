@@ -54,8 +54,8 @@ $(function () {
     createCollectable("skull", 320, 590, 0.4, 0.9);
     createCollectable("potion", 370,360, 0.5, );
     createCollectable("link", 140,110);
-    createCollectable("database", 1220,460);
-    createCollectable("kennedi", 1230,210);
+    createCollectable("monster", 1220,460);
+    createCollectable("slime", 1230,210);
 
 
     

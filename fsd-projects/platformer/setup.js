@@ -101,4 +101,6 @@ var collectableList = {
   skull: { image: "images/collectables/skull.png" },
   potion: { image: "images/collectables/potion.png" },
   link: { image: "images/collectables/link.png" },
+  monster: { image: "images/collectables/monster.png" },
+  slime: { image: "images/collectables/slime.png" },
 };
