@@ -8,7 +8,7 @@
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: rgb(181, 30, 211);
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -69,7 +69,7 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-
+        var positionX = 0;
 
 
 
@@ -80,9 +80,10 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-
+          
+          moveBoxTo(positionX);// moves box to the right edge
         
-
+          positionX += 10;//increases position by 10
           
         }
 
@@ -95,8 +96,8 @@
          */
         function handleBoxClick() {
 
-
-
+          positionX = 0;
+          changeBoxText(0)
 
         }
 
