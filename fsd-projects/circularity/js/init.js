@@ -31,7 +31,7 @@ var init = function (window) {
             circle = draw.randomCircleInArea(canvas, true, true, "#c90606ff", 2); // draws random circle
             physikz.addRandomVelocity(circle, canvas, 5, 5); //changes the speed of the circle
             view.addChild(circle); //im not really sure what this does
-            circles.push(circle); //puts circle into the array
+            circles.push(circle); //puts circle into the array by pushing it
         }
 
 
@@ -59,7 +59,7 @@ var init = function (window) {
             // TODO 4 : Update the position of each circle using physikz.updatePosition()
 
             for (var i = 0; i < circles.length; i++){
-                physikz.updatePosition(circles[i]); //updates position of the circle in the array
+                physikz.updatePosition(circles[i]); //updates position of the circle in the array for all circles
                 game.checkCirclePosition(circles[i]); //updates position of the circle to the opposite side of the screen
             }
             
