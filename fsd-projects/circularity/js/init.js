@@ -22,16 +22,16 @@ var init = function (window) {
         // TODO 1 : Declare and initialize our variables
         
         var circle; //variable to hold one circle
-        var circles = [];  //variable to store circles in an array
+        var circles = [];  //variable to store all circles in an array
 
 
         // TODO 2 : Create a function that draws a circle 
         
         function drawCircle(){
-            circle = draw.randomCircleInArea(canvas, true, true, "#c90606ff", 2); // draws random circle
+            circle = draw.randomCircleInArea(canvas, true, true, "#c90606ff", 2); // draws random circle within the specified canvas under specified conditions
             physikz.addRandomVelocity(circle, canvas, 5, 5); //changes the speed of the circle
             view.addChild(circle); //im not really sure what this does
-            circles.push(circle); //puts circle into the array by pushing it
+            circles.push(circle); //puts (circle) into the array by pushing it to the front
         }
 
 
@@ -43,7 +43,7 @@ var init = function (window) {
 
         for (var i = 0; i < 100; i++) {
             drawCircle(); //draws a circle
-        } //makes 100 circles appear by repeating the code
+        } //makes 100 circles appear by repeating the code for a specified amount
 
 
         ///////////////////
@@ -82,21 +82,21 @@ var init = function (window) {
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
-            } // makes balls on right appear on the left
+            } //updates ball position past the right to appear from the left
 
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             if(circle.x < 0){
                 circle.x = canvas.width;
-            } //makes balls on left appear on the right
+            } //updates ball position past the left to appear from the right
 
             if(circle.y > canvas.height){
                 circle.y = 0;
-            } //makes balls from bottom appear from the top
+            } //updates ball position past the bottom to appear from the top
 
             if(circle.y < 0){
                 circle.y = canvas.height;
-            } //makes balls from top appear from the bottom
+            } //updates ball position past the top to appear from the bottom
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
