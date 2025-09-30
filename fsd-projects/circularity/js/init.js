@@ -29,7 +29,7 @@ var init = function (window) {
         
         function drawCircle(){
             circle = draw.randomCircleInArea(canvas, true, true, "#9b537fff", 2); // draws random circle within the specified canvas under specified conditions
-            physikz.addRandomVelocity(circle, canvas, 5, 5); //changes the speed of the circle
+            physikz.addRandomVelocity(circle, canvas, 5, 5); //changes the speed of the circle by a number amount
             view.addChild(circle); //im not really sure what this does
             circles.push(circle); //puts (circle) into the array by pushing it to the front
         }
@@ -37,12 +37,16 @@ var init = function (window) {
 
         // TODO 3 : Call the drawCircle() function
 
-
+        //drawCircle(); // calls the function drawCircle
+        //drawCircle(); // calls the function drawCircle
+        //drawCircle(); // calls the function drawCircle
+        //drawCircle(); // calls the function drawCircle
+        //drawCircle(); // calls the function drawCircle
 
         // TODO 7 : Use a loop to create multiple circles
 
         for (var i = 0; i < 100; i++) {
-            drawCircle(); //draws a circle
+            drawCircle(); // calls the function drawCircle
         } //makes 100 circles appear by repeating the code for a specified amount
 
 
@@ -58,6 +62,12 @@ var init = function (window) {
         function update() {
             // TODO 4 : Update the position of each circle using physikz.updatePosition()
 
+            //physikz.updatePosition(circles[0]); //updates position of the specified circle in the array
+            //physikz.updatePosition(circles[1]); //updates position of the specified circle in the array
+            //physikz.updatePosition(circles[2]); //updates position of the specified circle in the array
+            //physikz.updatePosition(circles[3]); //updates position of the specified circle in the array
+            //physikz.updatePosition(circles[4]); //updates position of the specified circle in the array
+
             for (var i = 0; i < circles.length; i++){
                 physikz.updatePosition(circles[i]); //updates position of the circle in the array for all circles
                 game.checkCirclePosition(circles[i]); //updates position of the circle to the opposite side of the screen
@@ -65,7 +75,11 @@ var init = function (window) {
             
             // TODO 5 : Call game.checkCirclePosition() on your circles
             
-            
+            //game.checkCirclePosition(circles[0]); //updates position of the circle to the opposite side of the screen
+            //game.checkCirclePosition(circles[1]); //updates position of the circle to the opposite side of the screen
+            //game.checkCirclePosition(circles[2]); //updates position of the circle to the opposite side of the screen
+            //game.checkCirclePosition(circles[3]); //updates position of the circle to the opposite side of the screen
+            //game.checkCirclePosition(circles[4]); //updates position of the circle to the opposite side of the screen
 
             // TODO 8 / TODO 9 : Iterate over the array
            
