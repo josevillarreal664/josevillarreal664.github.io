@@ -19,19 +19,21 @@ var runLevels = function (window) {
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
 
-    function createObsticle(x, y, damage){
-      var hitZoneSize = 25;// sets the size of the obsicles collisoin area
-      var damageFromObstacle = 10;//ammount of damage taken
+    function createObsticle(x, y, hZS, damage, rotation, offsetX, offsetY, image, scaleX, scaleY){
+      var hitZoneSize = hZS;// sets the size of the obsicles collisoin area
+      var damageFromObstacle = damage;//ammount of damage taken
       var obsticleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);// creates obsicle hit zone attaches hitzone size and stores it to sawblade hitzone
       obsticleHitZone.x = x;// sets the obsticals x position
       obsticleHitZone.y = groundY - y;// sets the obsticals y position
       game.addGameItem(obsticleHitZone);// adds obsicle hitzone to the game
-      var obstacleImage = draw.bitmap("img/sawblade.png");//draws image as bitmap and stores it as an obsicle image
+      var obstacleImage = draw.bitmap(image);//draws image as bitmap and stores it as an obsicle image
       obsticleHitZone.addChild(obstacleImage);// adds image to the hitzone
-      obstacleImage.x = -25;//offsets the image horizontally relative to the hitzone
-      obstacleImage.y = -25//offsets the image vertically relative to the hitzone
+      obstacleImage.x = -offsetX;//offsets the image horizontally relative to the hitzone
+      obstacleImage.y = -offsetY//offsets the image vertically relative to the hitzone
+      obstacleImage.scaleX = scaleX;
+      obstacleImage.scaleY = scaleY;
 
-      obsticleHitZone.rotationalVelocity = 50;
+      obsticleHitZone.rotationalVelocity = rotation;
 
     }
 
@@ -82,13 +84,9 @@ var runLevels = function (window) {
       reward.onPlayerCollision = function(){
         game.changeIntegrity(10)//increases health
         game.increaseScore(50)//increases the players score
-        reward.fadeOut();//on projectile collision fadeOut the enemy
+        reward.fadeOut();//on projectile collision fadeOut the reward
       };
     }
-
-    createReward(550, groundY -50);
-    createReward(850, groundY -50);
-    createReward(1100, groundY -50);
 
     function createLevelMarker(x, y){
       var levelMarker = game.createGameItem("level", 25);
@@ -106,12 +104,10 @@ var runLevels = function (window) {
       levelMarker.onPlayerCollision = function(){
         game.changeIntegrity(100)//increases health
         game.increaseScore(1000)//increases the players score
-        levelMarker.fadeOut();//on projectile collision fadeOut the enemy
+        levelMarker.fadeOut();//on projectile collision fadeOut the portal
         startLevel();
       };
     }
-
-    createLevelMarker(1200, groundY -50);
     
     function startLevel() {
       // TODO 13 goes below here
@@ -123,11 +119,19 @@ var runLevels = function (window) {
         var element = levelObjects[i];
 
         if(element.type === "obstical"){
-          createObsticle(element.x, element.y, element.damage);
+          createObsticle(element.x, element.y, element.hZS, element.damage, element.rotation, element.offsetX, element.offsetX, element.image, element.scaleX, element.scaleY);
         }
 
         if(element.type === "enemy"){
-          createEnemy(element.x, element.y, element.damage);
+          createEnemy(element.x, element.y);
+        }
+
+        if(element.type === "reward"){
+          createReward(element.x, element.y);
+        }
+
+        if(element.type === "levelMarker"){
+          createLevelMarker(element.x, element.y);
         }
       }
 
