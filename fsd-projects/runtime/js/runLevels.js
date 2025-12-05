@@ -39,26 +39,30 @@ var runLevels = function (window) {
 
     
 
-    function createEnemy(x, y){
-      var enemy = game.createGameItem("enemy", 25);
-      var enemySprite = draw.rect(50, 50, "red");//creates image of an enemy and stores it in enemySprite
-      enemySprite.x = -25;//x axis offset for image hitZone
-      enemySprite.y = -25; //y axis offset for image hitZone
+    function createEnemy(x, y, hzS, image, offsetX, offsetY, scaleX, scaleY, spriteX, spriteY, velocityX, integrity, score){
+      var enemy = game.createGameItem("enemy", hzS);
+      var enemySprite = draw.bitmap(image);//creates image of an enemy and stores it in enemySprite
+      enemySprite.x = spriteX;//x axis offset for image hitZone
+      enemySprite.y = spriteY; //y axis offset for image hitZone
       enemy.addChild(enemySprite);//attaches sprite to enemy object
       enemy.x = x;// setting the enemyX position
       enemy.y = y;// setting the enemyX position
       game.addGameItem(enemy);//adds enemy to the game
+      enemySprite.x = -offsetX;//offsets the image horizontally relative to the hitzone
+      enemySprite.y = -offsetY//offsets the image vertically relative to the hitzone
+      enemySprite.scaleX = scaleX;
+      enemySprite.scaleY = scaleY;
 
-      enemy.velocityX -= 2;// animating the enemy accross the screen
+      enemy.velocityX = velocityX;// animating the enemy accross the screen
 
       //handles when halle collides with enemy
       enemy.onPlayerCollision = function(){
-        game.changeIntegrity(-10)//reduces health
+        game.changeIntegrity(integrity)//reduces health
       };
 
       //handles when halle shoots the enemy
       enemy.onProjectileCollision = function(){
-        game.increaseScore(100);//increases the players score
+        game.increaseScore(score);//increases the players score
         //on projectile collision fadeOut/shrink/flyoff the enemy
         enemy.fadeOut();
         //enemy.shrink();
@@ -68,42 +72,50 @@ var runLevels = function (window) {
 
     
 
-    function createReward(x, y){
-      var reward = game.createGameItem("reward", 25);
-      var rewardSprite = draw.rect(50, 50, "blue");//creates image of an reward and stores it in rewardSprite
-      rewardSprite.x = -25;//x axis offset for image hitZone
-      rewardSprite.y = -25; //y axis offset for image hitZone
+    function createReward(x, y, hzS, image, offsetX, offsetY, scaleX, scaleY, spriteX, spriteY, integrity, score){
+      var reward = game.createGameItem("reward", hzS);
+      var rewardSprite = draw.bitmap(image);//creates image of an reward and stores it in rewardSprite
+      rewardSprite.x = spriteX;//x axis offset for image hitZone
+      rewardSprite.y = spriteY; //y axis offset for image hitZone
       reward.addChild(rewardSprite);//attaches sprite to reward object
       reward.x = x;// setting the rewardX position
       reward.y = y;// setting the rewardX position
       game.addGameItem(reward);//adds reward to the game
+      rewardSprite.x = -offsetX;//offsets the image horizontally relative to the hitzone
+      rewardSprite.y = -offsetY//offsets the image vertically relative to the hitzone
+      rewardSprite.scaleX = scaleX;
+      rewardSprite.scaleY = scaleY;
 
       reward.velocityX -= 2;// animating the reward accross the screen
 
       //handles when halle collides with reward
       reward.onPlayerCollision = function(){
-        game.changeIntegrity(10)//increases health
-        game.increaseScore(50)//increases the players score
+        game.changeIntegrity(integrity)//increases health
+        game.increaseScore(score)//increases the players score
         reward.fadeOut();//on projectile collision fadeOut the reward
       };
     }
 
-    function createLevelMarker(x, y){
-      var levelMarker = game.createGameItem("level", 25);
-      var levelSprite = draw.rect(50, 50, "yellow");//creates image of an level and stores it in levelSprite
-      levelSprite.x = -25;//x axis offset for image hitZone
-      levelSprite.y = -25; //y axis offset for image hitZone
+    function createLevelMarker(x, y, hzS, image, offsetX, offsetY, scaleX, scaleY, spriteX, spriteY, integrity, score){
+      var levelMarker = game.createGameItem("level", hzS);
+      var levelSprite = draw.bitmap(image);//creates image of an level and stores it in levelSprite
+      levelSprite.x = spriteX;//x axis offset for image hitZone
+      levelSprite.y = spriteY; //y axis offset for image hitZone
       levelMarker.addChild(levelSprite);//attaches sprite to level object
       levelMarker.x = x;// setting the levelX position
       levelMarker.y = y;// setting the levelX position
       game.addGameItem(levelMarker);//adds level to the game
+      levelSprite.x = -offsetX;//offsets the image horizontally relative to the hitzone
+      levelSprite.y = -offsetY//offsets the image vertically relative to the hitzone
+      levelSprite.scaleX = scaleX;
+      levelSprite.scaleY = scaleY;
 
       levelMarker.velocityX -= 2;// animating the level accross the screen
 
       //handles when halle collides with level
       levelMarker.onPlayerCollision = function(){
-        game.changeIntegrity(100)//increases health
-        game.increaseScore(1000)//increases the players score
+        game.changeIntegrity(integrity)//increases health
+        game.increaseScore(score)//increases the players score
         levelMarker.fadeOut();//on projectile collision fadeOut the portal
         startLevel();
       };
@@ -123,15 +135,15 @@ var runLevels = function (window) {
         }
 
         if(element.type === "enemy"){
-          createEnemy(element.x, element.y);
+          createEnemy(element.x, element.y, element.hzS, element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.spriteX, element.spriteY, element.velocityX, element.integrity, element.score);
         }
 
         if(element.type === "reward"){
-          createReward(element.x, element.y);
+          createReward(element.x, element.y, element.hzS,  element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.spriteX, element.spriteY, element.integrity, element.score);
         }
 
         if(element.type === "levelMarker"){
-          createLevelMarker(element.x, element.y);
+          createLevelMarker(element.x, element.y, element.hzS,  element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.spriteX, element.spriteY, element.integrity, element.score);
         }
       }
 
