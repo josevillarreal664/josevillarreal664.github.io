@@ -42,7 +42,7 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'purple');//draws rectangle and stores rectangle in background fill
+            var backgroundFill = draw.bitmap("img/landscape.png");//draws rectangle and stores rectangle in background fill
             background.addChild(backgroundFill);// adds background fill to the background object
             
             // TODO 2: - Add a moon and starfield
@@ -51,7 +51,7 @@ var background = function (window) {
                 var circle = draw.circle(2, "white", "LightGray", 2);// create a circle with a specified radius, border color, fill color, alfa and stores it in the variable circle
                 circle.x = canvasWidth * Math.random();//sets a random x position within canvas width
                 circle.y = groundY * Math.random();//sets a random x position within canvas groundY
-                background.addChild(circle);//adds moon to the background
+                //background.addChild(circle);//adds stars to the background
             }
 
             var moon = draw.bitmap("img/moon.png");//creates bitmap object using the moon image and stores it in our variable moon
@@ -59,7 +59,7 @@ var background = function (window) {
             moon.y = groundY -450;//sets moons y position 
             moon.scaleX = .75;// scales the moons width
             moon.scaleY = .75;// scales the moons height
-            background.addChild(moon);// adds the moon to the background container
+            //background.addChild(moon);// adds the moon to the background container
 
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
@@ -70,8 +70,8 @@ var background = function (window) {
                 var building = draw.rect(75, buildingHeight, buildingColors[i], "Black", 1);//draws a rectangle as buildingheight, light gray, and black
                 building.x = 200 * i;// draws a rectangle and stores it on the x axis
                 building.y = groundY - buildingHeight;// // draws a rectangle and stores it on the y axis
-                background.addChild(building);// makes it visible in the background
-                buildings.push(building);// pushes it to the building array to be stored
+                //background.addChild(building);// makes it visible in the background
+                //buildings.push(building);// pushes it to the building array to be stored
             }
             
             // TODO 3: Part 1 - Add a tree
@@ -79,7 +79,7 @@ var background = function (window) {
             tree = draw.bitmap("img/tree.png");//creates bitmap object using the tree image and stores it in our variable tree
             tree.x = 400;//sets moons x position 
             tree.y = 230;//sets moons y position 
-            background.addChild(tree);// adds tree to the background container
+            //background.addChild(tree);// adds tree to the background container
             
         } // end of render function - DO NOT DELETE
         
@@ -94,7 +94,7 @@ var background = function (window) {
             
             // TODO 3: Part 2 - Move the tree!
             
-            tree.x = tree.x - 2;// moves the tree left by subtracting from its current position
+            tree.x = tree.x - 3;// moves the tree left by subtracting from its current position
 
             if (tree.x < -200) {//checks if the tree has gone off the left and resets to the right
             tree.x = canvasWidth;
