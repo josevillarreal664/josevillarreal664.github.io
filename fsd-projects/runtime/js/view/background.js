@@ -42,8 +42,18 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
-            var backgroundFill = draw.bitmap("img/landscape.png");//draws rectangle and stores rectangle in background fill
-            background.addChild(backgroundFill);// adds background fill to the background object
+            var backgroundImage = draw.bitmap("img/landscape.png");//draws rectangle and stores rectangle in background fill
+            background.addChild(backgroundImage);// adds background fill to the background object
+            // Scale image to fit width
+            backgroundImage.scaleX = canvasWidth / backgroundImage.image.width;
+            backgroundImage.scaleY = canvasHeight / backgroundImage.image.height;
+
+            // After scaling, compute its new height
+            var scaledHeight = backgroundImage.image.height * backgroundImage.scaleY;
+
+            // Position it so the BOTTOM of the image touches the ground
+            backgroundImage.x = 0;
+            backgroundImage.y = groundY - scaledHeight;
             
             // TODO 2: - Add a moon and starfield
             

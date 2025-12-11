@@ -51,9 +51,10 @@ var makeLevelData = function (window) {
         number: 2,
         speed: -3,
         gameItems: [
-          { type: "obstical", x: 400, y: groundY },
-          { type: "obstical", x: 600, y: groundY },
-          { type: "obstical", x: 900, y: groundY },
+          { type: "obstical", x: 1200, y: groundY -360, hZS: 20, damage: 30, rotation: 0, offsetX: 20, offsetY: 20, image: "img/spike_2.png", scaleX: 0.05, scaleY: 0.05},
+          { type: "enemy", x: 1000, y: groundY -50, hzS: 25, image: "img/boar.png", offsetX: 60, offsetY: 110, scaleX: 0.1, scaleY: 0.1, spriteX: -25, spriteY: -25, velocityX: -2, integrity: -10, score: 100},
+          { type: "reward", x: 2300, y: groundY -110, hzS: 25, image: "img/Hpotion.png", offsetX: 10, offsetY: 10, scaleX: 0.05, scaleY: 0.05, spriteX: -25, spriteY: -25, velocityX: 2, integrity: 10, score: 50},
+
         ],
       },
     ];
