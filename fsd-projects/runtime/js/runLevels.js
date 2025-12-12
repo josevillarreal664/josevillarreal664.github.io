@@ -14,24 +14,24 @@ var runLevels = function (window) {
     var levelData = window.opspark.levelData;
 
     // set this to true or false depending on if you want to see hitzones
-    game.setDebugMode(true);
+    game.setDebugMode(false);
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
 
-    function createObsticle(x, y, hZS, damage, rotation, offsetX, offsetY, image, scaleX, scaleY){
+    function createObstacle(x, y, hZS, damage, rotation, offsetX, offsetY, image, scaleX, scaleY){
       var hitZoneSize = hZS;// sets the size of the obsicles collisoin area
       var damageFromObstacle = damage;//ammount of damage taken
       var obsticleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);// creates obsicle hit zone attaches hitzone size and stores it to sawblade hitzone
-      obsticleHitZone.x = x;// sets the obsticals x position
-      obsticleHitZone.y = groundY - y;// sets the obsticals y position
+      obsticleHitZone.x = x;// sets the Obstacles x position
+      obsticleHitZone.y = groundY - y;// sets the Obstacles y position
       game.addGameItem(obsticleHitZone);// adds obsicle hitzone to the game
       var obstacleImage = draw.bitmap(image);//draws image as bitmap and stores it as an obsicle image
       obsticleHitZone.addChild(obstacleImage);// adds image to the hitzone
       obstacleImage.x = -offsetX;//offsets the image horizontally relative to the hitzone
       obstacleImage.y = -offsetY//offsets the image vertically relative to the hitzone
-      obstacleImage.scaleX = scaleX;
-      obstacleImage.scaleY = scaleY;
+      obstacleImage.scaleX = scaleX;//deals with how big the image appears on the screen on the x axis
+      obstacleImage.scaleY = scaleY;//deals with how big the image appears on the screen on the y axis
 
       obsticleHitZone.rotationalVelocity = rotation;
 
@@ -50,8 +50,8 @@ var runLevels = function (window) {
       game.addGameItem(enemy);//adds enemy to the game
       enemySprite.x = -offsetX;//offsets the image horizontally relative to the hitzone
       enemySprite.y = -offsetY//offsets the image vertically relative to the hitzone
-      enemySprite.scaleX = scaleX;
-      enemySprite.scaleY = scaleY;
+      enemySprite.scaleX = scaleX;//deals with how big the image appears on the screen on the x axis
+      enemySprite.scaleY = scaleY;//deals with how big the image appears on the screen on the y axis
 
       enemy.velocityX = velocityX;// animating the enemy accross the screen
 
@@ -83,8 +83,8 @@ var runLevels = function (window) {
       game.addGameItem(reward);//adds reward to the game
       rewardSprite.x = -offsetX;//offsets the image horizontally relative to the hitzone
       rewardSprite.y = -offsetY//offsets the image vertically relative to the hitzone
-      rewardSprite.scaleX = scaleX;
-      rewardSprite.scaleY = scaleY;
+      rewardSprite.scaleX = scaleX;//deals with how big the image appears on the screen on the x axis
+      rewardSprite.scaleY = scaleY;//deals with how big the image appears on the screen on the y axis
 
       reward.velocityX -=  velocityX;// animating the reward accross the screen
 
@@ -107,8 +107,8 @@ var runLevels = function (window) {
       game.addGameItem(levelMarker);//adds level to the game
       levelSprite.x = -offsetX;//offsets the image horizontally relative to the hitzone
       levelSprite.y = -offsetY//offsets the image vertically relative to the hitzone
-      levelSprite.scaleX = scaleX;
-      levelSprite.scaleY = scaleY;
+      levelSprite.scaleX = scaleX;//deals with how big the image appears on the screen on the x axis
+      levelSprite.scaleY = scaleY;//deals with how big the image appears on the screen on the y axis
 
       levelMarker.velocityX -=  velocityX;// animating the level accross the screen
 
@@ -130,13 +130,13 @@ var runLevels = function (window) {
       for(var i = 0; i < levelObjects.length; i++){
         var element = levelObjects[i];
 
-        if(element.type === "obstical"){
-          createObsticle(element.x, element.y, element.hZS, element.damage, element.rotation, element.offsetX, element.offsetX, element.image, element.scaleX, element.scaleY);
+        if(element.type === "Obstacle"){
+          createObstacle(element.x, element.y, element.hZS, element.damage, element.rotation, element.offsetX, element.offsetX, element.image, element.scaleX, element.scaleY);
         }
 
         if(element.type === "enemy"){
-          createEnemy(element.x, element.y, element.hzS, element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.spriteX, element.spriteY, element.velocityX, element.velocityX, element.integrity, element.score);
-        }
+          createEnemy(element.x, element.y, element.hzS, element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.spriteX, element.spriteY, element.velocityX, element.integrity, element.score);
+        }   
 
         if(element.type === "reward"){
           createReward(element.x, element.y, element.hzS,  element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.spriteX, element.spriteY, element.velocityX, element.integrity, element.score);
