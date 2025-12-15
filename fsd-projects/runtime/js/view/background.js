@@ -58,28 +58,28 @@ var background = function (window) {
             // TODO 2: - Add a moon and starfield
             
             for(var i = 0; i < 150 ; i++){
-                var circle = draw.circle(2, "white", "LightGray", 2);// create a circle with a specified radius, border color, fill color, alfa and stores it in the variable circle
-                circle.x = canvasWidth * Math.random();//sets a random x position within canvas width
-                circle.y = groundY * Math.random();//sets a random x position within canvas groundY
+                //var circle = draw.circle(2, "white", "LightGray", 2);// create a circle with a specified radius, border color, fill color, alfa and stores it in the variable circle
+                //circle.x = canvasWidth * Math.random();//sets a random x position within canvas width
+                //circle.y = groundY * Math.random();//sets a random x position within canvas groundY
                 //background.addChild(circle);//adds stars to the background
             }
 
-            var moon = draw.bitmap("img/moon.png");//creates bitmap object using the moon image and stores it in our variable moon
-            moon.x = canvas.width -350;//sets moons x position 
-            moon.y = groundY -450;//sets moons y position 
-            moon.scaleX = .75;// scales the moons width
-            moon.scaleY = .75;// scales the moons height
+            //var moon = draw.bitmap("img/moon.png");//creates bitmap object using the moon image and stores it in our variable moon
+            //moon.x = canvas.width -350;//sets moons x position 
+            //moon.y = groundY -450;//sets moons y position 
+            //moon.scaleX = .75;// scales the moons width
+            //moon.scaleY = .75;// scales the moons height
             //background.addChild(moon);// adds the moon to the background container
 
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
             for (var i = 0; i < 5; ++i) {//creates 5 buildings
-                var buildingColors = ["green", "blue", "pink", "black"];
-                var buildingHeight = 300 * Math.random();// stores the valuse which represents the height
-                var building = draw.rect(75, buildingHeight, buildingColors[i], "Black", 1);//draws a rectangle as buildingheight, light gray, and black
-                building.x = 200 * i;// draws a rectangle and stores it on the x axis
-                building.y = groundY - buildingHeight;// // draws a rectangle and stores it on the y axis
+                //var buildingColors = ["green", "blue", "pink", "black"];
+                //var buildingHeight = 300 * Math.random();// stores the valuse which represents the height
+                //var building = draw.rect(75, buildingHeight, buildingColors[i], "Black", 1);//draws a rectangle as buildingheight, light gray, and black
+                //building.x = 200 * i;// draws a rectangle and stores it on the x axis
+                //building.y = groundY - buildingHeight;// // draws a rectangle and stores it on the y axis
                 //background.addChild(building);// makes it visible in the background
                 //buildings.push(building);// pushes it to the building array to be stored
             }

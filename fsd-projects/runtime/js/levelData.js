@@ -24,9 +24,6 @@ var makeLevelData = function (window) {
           { type: "Obstacle", x: 4800, y: groundY -450, hZS: 15, damage: 30, rotation: 0, offsetX: 20, offsetY: 20, image: "img/spike.png", scaleX: 0.05, scaleY: 0.05},
           { type: "Obstacle", x: 6000, y: groundY -450, hZS: 15, damage: 30, rotation: 0, offsetX: 20, offsetY: 20, image: "img/spike.png", scaleX: 0.05, scaleY: 0.05},
           { type: "Obstacle", x: 6600, y: groundY -450, hZS: 15, damage: 30, rotation: 0, offsetX: 20, offsetY: 20, image: "img/spike.png", scaleX: 0.05, scaleY: 0.05},
-          { type: "Obstacle", x: 7200, y: groundY -360, hZS: 15, damage: 30, rotation: 0, offsetX: 20, offsetY: 20, image: "img/spike_2.png", scaleX: 0.05, scaleY: 0.05},
-          { type: "Obstacle", x: 7800, y: groundY -360, hZS: 15, damage: 30, rotation: 0, offsetX: 20, offsetY: 20, image: "img/spike_2.png", scaleX: 0.05, scaleY: 0.05},
-          { type: "Obstacle", x: 8400, y: groundY -450, hZS: 15, damage: 30, rotation: 0, offsetX: 20, offsetY: 20, image: "img/spike.png", scaleX: 0.05, scaleY: 0.05},
           { type: "enemy", x: 1000, y: groundY -50, hzS: 25, image: "img/bandit.png", offsetX: 60, offsetY: 40, scaleX: 0.5, scaleY: 0.5, spriteX: -25, spriteY: -25, velocityX: -2, integrity: -10, score: 100},
           { type: "enemy", x: 1500, y: groundY -50, hzS: 25, image: "img/bandit.png", offsetX: 60, offsetY: 40, scaleX: 0.5, scaleY: 0.5,spriteX: -25, spriteY: -25, velocityX: -2, integrity: -10, score: 100},
           { type: "enemy", x: 2000, y: groundY -50, hzS: 25, image: "img/bandit.png", offsetX: 60, offsetY: 40, scaleX: 0.5, scaleY: 0.5,spriteX: -25, spriteY: -25, velocityX: -2, integrity: -10, score: 100},
@@ -43,7 +40,7 @@ var makeLevelData = function (window) {
           { type: "reward", x: 4900, y: groundY -110, hzS: 25, image: "img/Hpotion.png", offsetX: 10, offsetY: 10, scaleX: 0.05, scaleY: 0.05, spriteX: -25, spriteY: -25, velocityX: 2, integrity: 10, score: 50},
           { type: "reward", x: 5400, y: groundY -110, hzS: 25, image: "img/Hpotion.png", offsetX: 10, offsetY: 10, scaleX: 0.05, scaleY: 0.05, spriteX: -25, spriteY: -25, velocityX: 2, integrity: 10, score: 50},
           { type: "reward", x: 6500, y: groundY -110, hzS: 25, image: "img/Hpotion.png", offsetX: 10, offsetY: 10, scaleX: 0.05, scaleY: 0.05, spriteX: -25, spriteY: -25, velocityX: 2, integrity: 10, score: 50},
-          { type: "levelMarker", x: 8600, y: groundY -100, hzS: 30, image: "img/portal.png", offsetX: 90, offsetY: 70, scaleX: 0.5, scaleY: 0.8, spriteX: -25, spriteY: -25, velocityX: 2, integrity: 100, score: 1000},
+          { type: "levelMarker", x: 7400, y: groundY -100, hzS: 30, image: "img/portal.png", offsetX: 90, offsetY: 70, scaleX: 0.5, scaleY: 0.8, spriteX: -25, spriteY: -25, velocityX: 2, integrity: 100, score: 1000},
         ],
       },
       {

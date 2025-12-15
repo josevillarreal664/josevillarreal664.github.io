@@ -33,7 +33,7 @@ var runLevels = function (window) {
       obstacleImage.scaleX = scaleX;//deals with how big the image appears on the screen on the x axis
       obstacleImage.scaleY = scaleY;//deals with how big the image appears on the screen on the y axis
 
-      obsticleHitZone.rotationalVelocity = rotation;
+      obsticleHitZone.rotationalVelocity = rotation;// deals with the rotational speed of the obstical
 
     }
 
@@ -64,7 +64,7 @@ var runLevels = function (window) {
       enemy.onProjectileCollision = function(){
         game.increaseScore(score);//increases the players score
         //on projectile collision fadeOut/shrink/flyoff the enemy
-        enemy.fadeOut();
+        enemy.fadeOut();//on projectile collision fadeOut the enemy
         //enemy.shrink();
         //enemy.flyOff();
       };
@@ -127,7 +127,7 @@ var runLevels = function (window) {
       var level = levelData[currentLevel];//fetches the current level from the levelData arrya and stores it in the currentLevel
       var levelObjects = level.gameItems;//retreves the array of game items and stores it in the levelObjects variable
 
-      for(var i = 0; i < levelObjects.length; i++){
+      for(var i = 0; i < levelObjects.length; i++){//calls all of the types and places them on the map every time they are called in the leveldata object
         var element = levelObjects[i];
 
         if(element.type === "Obstacle"){
